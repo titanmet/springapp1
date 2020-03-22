@@ -22,7 +22,8 @@
     </bean>
 
     <bean id="musicPlayer"
-        class="ru.ratnikov.springcourse.MusicPlayer">
+        class="ru.ratnikov.springcourse.MusicPlayer"
+        scope="prototype">
 <!--        <property name="music" ref="musicBean" />-->
 <!--        <property name="name" value="${musicPlayer.name}" />-->
 <!--        <property name="volume" value="${musicPlayer.volume}" />-->
