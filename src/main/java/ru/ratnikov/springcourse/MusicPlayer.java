@@ -4,23 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MusicPlayer {
-    private List<Music> musicList = new ArrayList<Music>();
-//    private Music music;
+//    private List<Music> musicList = new ArrayList<Music>();
+    private Music music;
     private String name;
     private int volume;
 
     // Inversion of Control
-//    public MusicPlayer(Music music) {
-//        this.music = music;
+    public MusicPlayer(Music music) {
+        this.music = music;
+    }
+
+
+//    public void setMusicList(List<Music> musicList) {
+//        this.musicList = musicList;
 //    }
-
-    public MusicPlayer() {
-
-    }
-
-    public void setMusicList(List<Music> musicList) {
-        this.musicList = musicList;
-    }
 
     public String getName() {
         return name;
@@ -43,9 +40,9 @@ public class MusicPlayer {
 //    }
 
     public void playMusic() {
-        for (Music music : musicList) {
+//        for (Music music : musicList) {
             System.out.println("Playing: " + music.getSong());
-        }
+//        }
 
     }
 }
