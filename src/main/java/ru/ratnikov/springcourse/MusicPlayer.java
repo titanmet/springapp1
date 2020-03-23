@@ -1,6 +1,7 @@
 package ru.ratnikov.springcourse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -10,6 +11,8 @@ public class MusicPlayer {
 //    private List<Music> musicList = new ArrayList<Music>();
     private RapMusic rapMusic;
     private RockMusic rockMusic;
+    @Autowired
+    @Qualifier("rockMusic")
     private Music music;
     private String name;
     private int volume;
@@ -19,15 +22,15 @@ public class MusicPlayer {
 //        this.music = music;
 //    }
 //    @Autowired
-    public MusicPlayer(Music music) {
-        this.music = music;
-    }
+//    public MusicPlayer(Music music) {
+//        this.music = music;
+//    }
 
-    @Autowired
-    public MusicPlayer(RapMusic rapMusic, RockMusic rockMusic) {
-        this.rapMusic = rapMusic;
-        this.rockMusic = rockMusic;
-    }
+//    @Autowired
+//    public MusicPlayer(RapMusic rapMusic, RockMusic rockMusic) {
+//        this.rapMusic = rapMusic;
+//        this.rockMusic = rockMusic;
+//    }
 
     //    public void setMusicList(List<Music> musicList) {
 //        this.musicList = musicList;
@@ -54,7 +57,7 @@ public class MusicPlayer {
 //    }
 
     public String playMusic() {
-        return "Playing: " + rapMusic.getSong();
+        return "Playing: " + music.getSong();
 //        for (Music music : musicList) {
 //            System.out.println("Playing: " + rapMusic.getSong());
 //            System.out.println("Playing: " + rockMusic.getSong());
