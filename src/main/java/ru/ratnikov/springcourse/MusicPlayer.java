@@ -6,16 +6,25 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+
 @Component
 public class MusicPlayer {
-//    private List<Music> musicList = new ArrayList<Music>();
+    //    private List<Music> musicList = new ArrayList<Music>();
     private RapMusic rapMusic;
     private RockMusic rockMusic;
-    @Autowired
-    @Qualifier("rockMusic")
+    //    @Autowired
+//    @Qualifier("rockMusic")
     private Music music;
+    private Music music1;
+    private Music music2;
     private String name;
     private int volume;
+
+    @Autowired
+    public MusicPlayer(@Qualifier("rockMusic") Music music1, @Qualifier("rapMusic") Music music2) {
+        this.music1 = music1;
+        this.music2 = music2;
+    }
 
     // Inversion of Control
 //    public MusicPlayer(Music music) {
@@ -57,7 +66,7 @@ public class MusicPlayer {
 //    }
 
     public String playMusic() {
-        return "Playing: " + music.getSong();
+        return "Playing: " + music1.getSong() + ", " + music2.getSong();
 //        for (Music music : musicList) {
 //            System.out.println("Playing: " + rapMusic.getSong());
 //            System.out.println("Playing: " + rockMusic.getSong());
