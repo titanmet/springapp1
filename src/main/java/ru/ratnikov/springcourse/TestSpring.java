@@ -5,7 +5,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class TestSpring {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
-          "applicationContext.xml"
+                "applicationContext.xml"
         );
 //
 //        Music music = context.getBean("rapMusic", Music.class);
@@ -34,8 +34,14 @@ public class TestSpring {
 //        musicPlayer.playMusic();
 //        musicPlayer1.playMusic();
 //
-        Computer computer = context.getBean("computer",Computer.class);
+        Computer computer = context.getBean("computer", Computer.class);
         System.out.println(computer);
+
+        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+        System.out.println(musicPlayer.getName());
+        System.out.println(musicPlayer.getVolume());
+
+        RockMusic rockMusic = context.getBean("rockMusic", RockMusic.class);
 
         context.close();
     }
